@@ -2,26 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  body {
+    @apply bg-[#18191A] text-white;
   }
-}
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
+  button {
+    @apply bg-[#464849] py-2 px-2 rounded-md border border-[#5F5F5F]/50 shadow-sm cursor-pointer hover:bg-[#3C3D3D] transition-colors transition-transform active:translate-y-1;
+  }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .login-form {
+    @apply flex flex-col my-6;
+  }
+
+  .login-form div {
+    @apply flex flex-col gap-2 my-2;
+  }
+
+  .login-form input {
+    @apply border border-black/20 rounded-md px-4 py-2 bg-gray-300 text-black;
   }
 }
