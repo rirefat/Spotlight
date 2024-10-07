@@ -1,6 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
+import { dbConnect } from "@/services/mongo";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -16,9 +17,10 @@ const geistMono = localFont({
 export const metadata = {
   title: "SpotLight",
   description: "a platform for users to discover events in their vicinity. Dive into building an intuitive interface, integrating location-based features, and curating event listings to enhance user engagement and foster community connections.",
-};
+}; 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  await dbConnect();
   return (
     <html lang="en">
       <body
