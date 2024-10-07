@@ -1,4 +1,5 @@
 import Image from "next/image";
+import ActionButtons from "../ActionButtons";
 
 const EventCard = () => {
     return (
@@ -7,8 +8,8 @@ const EventCard = () => {
                 src="/events/google-io-2023-1.png"
                 alt="Event 1"
                 className="w-full"
-                width={375}
-                height={375}
+                width={500}
+                height={500}
             />
 
             <div className="p-3">
@@ -21,13 +22,7 @@ const EventCard = () => {
                 </div>
 
                 {/* Buttons  */}
-                <div className="w-full flex gap-4 mt-4">
-                    {/* bg-indigo-600 indicating Active  */}
-                    <button className="w-full bg-indigo-600 hover:bg-indigo-800">Interested</button>
-
-                    {/* bg-green-600 indicating Active  */}
-                    <button className="w-full">Going</button>
-                </div>
+                <ActionButtons />
             </div>
         </div>
     );
