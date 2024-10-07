@@ -1,8 +1,6 @@
-import ActionButtons from '@/components/ActionButtons';
 import DetailsHeroSection from '@/components/details/DetailsHeroSection';
 import EventDetails from '@/components/details/EventDetails';
 import EventVenue from '@/components/details/EventVenue';
-import Image from 'next/image';
 
 const DetailsPage = () => {
     return (

@@ -6,7 +6,7 @@ const Navbar = () => {
         <nav>
             <div className="container flex justify-between items-center py-4">
                 <div className="nav-brand">
-                    <Link href="index.html">
+                    <Link href="/">
                         <Image
                             src="/spotlight-logo.png"
                             alt="Logo of Spotlight"
