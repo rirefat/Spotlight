@@ -9,7 +9,7 @@ const Navbar = () => {
                     <Link href="index.html">
                         <Image
                             src="/spotlight-logo.png"
-                            alt="Logo"
+                            alt="Logo of Spotlight"
                             className="h-[45px]"
                             width={135}
                             height={135}
