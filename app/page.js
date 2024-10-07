@@ -1,8 +1,12 @@
+import EventList from "@/components/landingPage/EventList";
+import Header from "@/components/landingPage/Header";
+
 const Home = () => {
   return (
-    <div>
-      Home page
-    </div>
+    <section className="container">
+      <Header />
+      <EventList/>
+    </section>
   );
 };
 

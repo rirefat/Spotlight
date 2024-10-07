@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
-import Header from "@/components/header/Header";
+import Header from "@/components/landingPage/Header";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -27,10 +27,7 @@ export default function RootLayout({ children }) {
       >
         <Navbar />
         <main className="py-8">
-          <section className="container">
-            <Header />
             {children}
-          </section>
         </main>
       </body>
     </html>
