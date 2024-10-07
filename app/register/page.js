@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 const RegisterPage = () => {
     return (
-        <section class="h-screen grid place-items-center">
+        <section className="h-screen grid place-items-center">
             <div
-                class="max-w-[450px] w-full mx-auto p-6 border border-gray-700/20 rounded-md"
+                className="max-w-[450px] w-full mx-auto p-6 border border-gray-700/20 rounded-md"
             >
-                <h4 class="font-bold text-2xl">Register</h4>
-                <form class="login-form">
+                <h4 className="font-bold text-2xl">Register</h4>
+                <form className="login-form">
                     {/* name  */}
                     <div>
                         <label for="name">Full Name</label>
@@ -29,21 +31,25 @@ const RegisterPage = () => {
                     {/* bio  */}
                     <div>
                         <label for="bio">Bio</label>
-                        <input class="min-h-16" type="text" name="bio" id="bio" />
+                        <input className="min-h-16" type="text" name="bio" id="bio" />
                     </div>
 
                     <button
                         type="submit"
-                        class="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
+                        className="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
                     >
                         Register
                     </button>
                 </form>
 
-                <span class="text-center text-xs text-gray-500">
+                <span className="text-center text-xs text-gray-500">
                     Already have an account?
-                    <a class="underline hover:text-indigo-600" href="/login"
-                    >Login</a >
+                    <Link
+                        className="underline hover:text-indigo-600"
+                        href="/login"
+                    >
+                        Login
+                    </Link >
                 </span>
             </div>
         </section>

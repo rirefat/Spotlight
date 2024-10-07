@@ -1,11 +1,13 @@
+import Link from "next/link";
+
 const LoginPage = () => {
     return (
-        <section class="h-screen grid place-items-center">
+        <section className="h-screen grid place-items-center">
             <div
-                class="max-w-[450px] w-full mx-auto p-6 border border-gray-700/20 rounded-md"
+                className="max-w-[450px] w-full mx-auto p-6 border border-gray-700/20 rounded-md"
             >
-                <h4 class="font-bold text-2xl">Sign in</h4>
-                <form class="login-form">
+                <h4 className="font-bold text-2xl">Sign in</h4>
+                <form className="login-form">
                     {/* email  */}
                     <div>
                         <label for="email">Email Address</label>
@@ -19,16 +21,20 @@ const LoginPage = () => {
 
                     <button
                         type="submit"
-                        class="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
+                        className="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
                     >
                         Login
                     </button>
                 </form>
 
-                <span class="text-center text-xs text-gray-500">
+                <span className="text-center text-xs text-gray-500">
                     Don&apos;t have an account?
-                    <a class="underline hover:text-indigo-600" href="/register"
-                    >Register</a >
+                    <Link
+                        className="underline hover:text-indigo-600"
+                        href="/register"
+                    >
+                        Register
+                    </ Link>
                 </span>
             </div>
         </section>
