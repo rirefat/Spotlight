@@ -1,7 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
-import { dbConnect } from "@/services/mongo";
+import { dbConnect } from "@/database/services/mongo";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
