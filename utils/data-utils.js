@@ -5,4 +5,4 @@ export const replaceMongoID = (array) => {
     }).map(({_id, ...rest}) => rest);
 
     return mappedArray;
-}
+};
