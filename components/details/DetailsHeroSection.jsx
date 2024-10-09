@@ -9,8 +9,8 @@ const DetailsHeroSection = ({event}) => {
                     src={event?.imageUrl}
                     alt="Event 1"
                     layout="responsive"
-                    width={500}
-                    height={450}
+                    width={350}
+                    height={300}
                     objectFit="cover"
                     className="mx-auto"
                 />
