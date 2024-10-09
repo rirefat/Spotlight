@@ -17,9 +17,10 @@ const Navbar = () => {
                     </Link>
                 </div>
 
-                <ul className="flex gap-4 text-[#9C9C9C]">
-                    <li>About</li>
-                    <li>Contact Us</li>
+                <ul className="flex gap-4 text-[#9C9C9C] ">
+                    <li><Link className='hover:text-slate-200' href="/about">About</Link></li>
+                    <li><Link className='hover:text-slate-200' href="/contact-us">Contact Us</Link></li>
+                    <li><Link className='hover:text-slate-200' href="/login">Login</Link></li>
                 </ul>
             </div>
         </nav>
