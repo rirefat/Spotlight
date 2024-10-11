@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { dbConnect } from "@/database/services/mongo";
 import { Suspense } from "react";
+import Loading from "@/components/Loading";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -31,7 +32,7 @@ export default async function RootLayout({ children }) {
         <Navbar />
 
         <main className="py-8">
-          <Suspense fallback={<div className="text-center mt-20">Loading...</div>}>
+          <Suspense fallback={<Loading />}>
             {children}
           </Suspense>
         </main>
