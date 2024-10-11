@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { dbConnect } from "@/database/services/mongo";
+import { Suspense } from "react";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -17,10 +18,10 @@ const geistMono = localFont({
 export const metadata = {
   title: "SpotLight",
   description: "a platform for users to discover events in their vicinity. Dive into building an intuitive interface, integrating location-based features, and curating event listings to enhance user engagement and foster community connections.",
-}; 
+};
 
 export default async function RootLayout({ children }) {
-  await dbConnect(); 
+  await dbConnect();
 
   return (
     <html lang="en">
@@ -28,9 +29,13 @@ export default async function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
+
         <main className="py-8">
+          <Suspense fallback={<div className="text-center mt-20">Loading...</div>}>
             {children}
+          </Suspense>
         </main>
+
       </body>
     </html>
   );
