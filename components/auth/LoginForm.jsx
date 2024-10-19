@@ -1,6 +1,8 @@
+import { loginUser } from "@/actions";
+
 const LoginForm = () => {
     return (
-        <form className="login-form">
+        <form className="login-form" action={loginUser}>
             {/* email  */}
             <div>
                 <label for="email">Email Address</label>
