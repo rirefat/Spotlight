@@ -33,7 +33,7 @@ export default async function RootLayout({ children }) {
             {children}
           </main>
         </AuthProvider>
-        <Toaster richColors />
+        <Toaster  />
       </body>
     </html>
   );

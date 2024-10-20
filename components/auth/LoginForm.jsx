@@ -7,7 +7,7 @@ import { toast } from "sonner";
 
 const LoginForm = () => {
     const [error, setError] = useState('');
-    const { auth, setAuth } = useAuth();
+    const { setAuth } = useAuth();
     const router = useRouter();
 
     const handleSubmit = async (event) => {
@@ -30,7 +30,6 @@ const LoginForm = () => {
         }
     }
 
-    console.log(auth)
 
     return (
         <>
