@@ -9,15 +9,15 @@ export const registerUser = async (formData) => {
 }
 
 export const performLogin = async (formData) => {
-    const credential ={};
-    credential.email = formData.get('email');
-    credential.password = formData.get('password');
+    const credential = {};
+    try {
+        credential.email = formData.get('email');
+        credential.password = formData.get('password');
 
-    const result = await findUser(credential);
+        const result = await findUser(credential);
+        return result;
 
-    if(result){
-        redirect('/');
-    }else{
-        throw new Error("User with this email is not valid.")
+    } catch (err) {
+        throw err;
     }
 }

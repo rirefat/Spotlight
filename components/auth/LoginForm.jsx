@@ -1,23 +1,33 @@
 'use client'
 import { performLogin } from "@/actions";
+import useAuth from "@/hooks/useAuth";
 import { useState } from "react";
 import { toast } from "sonner";
 
 const LoginForm = () => {
     const [error, setError] = useState('');
+    const { auth, setAuth } = useAuth();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
 
         try {
             const formData = new FormData(event.currentTarget);
-            await performLogin(formData);
-            toast.success('Login Successfully')
+            const user = await performLogin(formData);
+
+            if (user) {
+                setAuth(user);
+                toast.success('Login Successfully');
+            } else {
+                setError('Please provide a valid login credential');
+            }
 
         } catch (err) {
             setError(err.message)
         }
     }
+
+    console.log(auth)
 
     return (
         <>

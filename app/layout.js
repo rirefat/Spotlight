@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { dbConnect } from "@/database/services/mongo";
 import { Toaster } from "sonner";
+import AuthProvider from "@/providers/AuthProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -26,10 +27,12 @@ export default async function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
-        <Navbar />
-        <main className="py-8">
-          {children}
-        </main>
+        <AuthProvider>
+          <Navbar />
+          <main className="py-8">
+            {children}
+          </main>
+        </AuthProvider>
         <Toaster richColors />
       </body>
     </html>
