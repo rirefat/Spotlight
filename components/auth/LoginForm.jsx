@@ -1,26 +1,52 @@
-import { loginUser } from "@/actions";
+'use client'
+
+import { performLogin } from "@/actions";
+import { useState } from "react";
 
 const LoginForm = () => {
-    return (
-        <form className="login-form" action={loginUser}>
-            {/* email  */}
-            <div>
-                <label for="email">Email Address</label>
-                <input type="email" name="email" id="email" />
-            </div>
-            {/* password  */}
-            <div>
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password" />
-            </div>
+    const [error, setError] = useState('');
 
-            <button
-                type="submit"
-                className="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
-            >
-                Login
-            </button>
-        </form>
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+
+        try {
+            const formData = new FormData(event.currentTarget);
+            await performLogin(formData);
+            
+        } catch (err) {
+            setError(err.message)
+        }
+    }
+
+    return (
+        <>
+            <form className="login-form" onSubmit={handleSubmit}>
+                {/* email  */}
+                <div>
+                    <label for="email">Email Address</label>
+                    <input type="email" name="email" id="email" required />
+                </div>
+                {/* password  */}
+                <div>
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password" required />
+                </div>
+
+                <button
+                    type="submit"
+                    className="btn-primary w-full mt-4 bg-indigo-600 hover:bg-indigo-800"
+                >
+                    Login
+                </button>
+            </form>
+
+            {
+                error &&
+                <div className="error-section text-red-400">
+                    <p>❌ {error}</p>
+                </div>
+            }
+        </>
     );
 };
 

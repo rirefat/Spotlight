@@ -19,9 +19,5 @@ export const createUser = async (user) => {
 
 export const findUser = async (credentials) => {
     const user = await userModel.findOne(credentials).lean();
-    if (user) {
-        return user;
-    } else {
-        return null;
-    }
+    return user;
 }

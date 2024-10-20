@@ -5,18 +5,19 @@ import { redirect } from "next/navigation";
 export const registerUser = async (formData) => {
     const user = Object.fromEntries(formData);
     const createdUser = await createUser(user);
-
     redirect('/login');
 }
 
-export const loginUser = async (formData) => {
-    try {
-        const credentials = Object.fromEntries(formData);
-        const foundUser = await findUser(credentials);
-        // redirect('/');
-        return foundUser;
-        
-    } catch (error) {
-        throw error;
+export const performLogin = async (formData) => {
+    const credential ={};
+    credential.email = formData.get('email');
+    credential.password = formData.get('password');
+
+    const result = await findUser(credential);
+
+    if(result){
+        redirect('/');
+    }else{
+        throw new Error("User with this email is not valid.")
     }
 }
