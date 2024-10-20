@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react';
+import { toast } from 'sonner';
 
 const ContactUs = () => {
     const [formData, setFormData] = useState({
@@ -29,6 +30,8 @@ const ContactUs = () => {
             setIsSubmitted(true);
             setError('');
             setFormData({ name: '', email: '', message: '' });
+            // toast.success("Thanks for contacting us, we'll reach you soon.");
+
         } catch (err) {
             setError('Failed to send your message. Please try again later.');
         }
@@ -55,53 +58,56 @@ const ContactUs = () => {
                     </div>
                 )}
 
-                <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <label className="block text-lg mb-2" htmlFor="name">Name:</label>
-                        <input
-                            type="text"
-                            id="name"
-                            name="name"
-                            value={formData.name}
-                            onChange={handleChange}
-                            className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none"
-                            required
-                        />
-                    </div>
+                {
+                    !isSubmitted &&
+                    <form onSubmit={handleSubmit} className="space-y-4">
+                        <div>
+                            <label className="block text-lg mb-2" htmlFor="name">Name:</label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                value={formData.name}
+                                onChange={handleChange}
+                                className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none"
+                                required
+                            />
+                        </div>
 
-                    <div>
-                        <label className="block text-lg mb-2" htmlFor="email">Email:</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            value={formData.email}
-                            onChange={handleChange}
-                            className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none"
-                            required
-                        />
-                    </div>
+                        <div>
+                            <label className="block text-lg mb-2" htmlFor="email">Email:</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                value={formData.email}
+                                onChange={handleChange}
+                                className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none"
+                                required
+                            />
+                        </div>
 
-                    <div>
-                        <label className="block text-lg mb-2" htmlFor="message">Message:</label>
-                        <textarea
-                            id="message"
-                            name="message"
-                            value={formData.message}
-                            onChange={handleChange}
-                            className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none"
-                            rows="4"
-                            required
-                        />
-                    </div>
+                        <div>
+                            <label className="block text-lg mb-2" htmlFor="message">Message:</label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                value={formData.message}
+                                onChange={handleChange}
+                                className="w-full p-3 bg-gray-800 text-white rounded-lg focus:outline-none"
+                                rows="4"
+                                required
+                            />
+                        </div>
 
-                    <button
-                        type="submit"
-                        className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300"
-                    >
-                        Send Message
-                    </button>
-                </form>
+                        <button
+                            type="submit"
+                            className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition duration-300"
+                        >
+                            Send Message
+                        </button>
+                    </form>
+                }
             </div>
         </div>
     );
