@@ -2,6 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import { dbConnect } from "@/database/services/mongo";
+import { Toaster } from "sonner";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,7 @@ export default async function RootLayout({ children }) {
         <main className="py-8">
           {children}
         </main>
+        <Toaster richColors />
       </body>
     </html>
   );

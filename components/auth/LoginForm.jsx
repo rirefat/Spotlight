@@ -1,7 +1,7 @@
 'use client'
-
 import { performLogin } from "@/actions";
 import { useState } from "react";
+import { toast } from "sonner";
 
 const LoginForm = () => {
     const [error, setError] = useState('');
@@ -12,7 +12,8 @@ const LoginForm = () => {
         try {
             const formData = new FormData(event.currentTarget);
             await performLogin(formData);
-            
+            toast.success('Login Successfully')
+
         } catch (err) {
             setError(err.message)
         }
