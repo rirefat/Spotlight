@@ -5,13 +5,15 @@ import Link from "next/link";
 const EventCard = ({ event }) => {
     return (
         <div className="overflow-hidden rounded-md bg-[#242526]">
-            <Image
-                src={event.imageUrl}
-                alt="Event 1"
-                className="w-full"
-                width={500}
-                height={500}
-            />
+            <div className="h-60 relative">
+                <Image
+                    fill
+                    src={event.imageUrl}
+                    alt="Event 1"
+                    className="w-full"
+                    style={{ objectFit: 'cover' }}
+                />
+            </div>
 
             <div className="p-3">
                 <Link href={`/eventDetails/${event?.id}`} className="font-bold text-lg">{event.name}</Link>
