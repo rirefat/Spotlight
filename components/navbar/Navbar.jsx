@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import UserAccess from "./UserAccess";
 
 const Navbar = () => {
     return (
@@ -20,7 +21,7 @@ const Navbar = () => {
                 <ul className="flex gap-4 text-[#9C9C9C] ">
                     <li><Link className='hover:text-slate-200' href="/about">About</Link></li>
                     <li><Link className='hover:text-slate-200' href="/contact-us">Contact Us</Link></li>
-                    <li><Link className='hover:text-slate-200' href="/login">Login</Link></li>
+                    <li><UserAccess /></li>
                 </ul>
             </div>
         </nav>

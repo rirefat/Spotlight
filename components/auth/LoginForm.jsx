@@ -1,12 +1,14 @@
 'use client'
 import { performLogin } from "@/actions";
 import useAuth from "@/hooks/useAuth";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 
 const LoginForm = () => {
     const [error, setError] = useState('');
     const { auth, setAuth } = useAuth();
+    const router = useRouter();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -17,6 +19,7 @@ const LoginForm = () => {
 
             if (user) {
                 setAuth(user);
+                router.push('/');
                 toast.success('Login Successfully');
             } else {
                 setError('Please provide a valid login credential');
