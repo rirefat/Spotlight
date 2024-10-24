@@ -1,13 +1,18 @@
 'use server'
-import { createUser, findUser } from "@/database/queries";
+import { createUser, findUser, updateInterestedEvents } from "@/database/queries";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
+
+// Action for user registration
 export const registerUser = async (formData) => {
     const user = Object.fromEntries(formData);
-    const createdUser = await createUser(user);
+    await createUser(user);
     redirect('/login');
 }
 
+
+// Action for user login
 export const performLogin = async (formData) => {
     const credential = {};
     try {
@@ -20,4 +25,15 @@ export const performLogin = async (formData) => {
     } catch (err) {
         throw err;
     }
+}
+
+
+// Action for updating interested events
+export const addInterestedEvents = async (eventId, userId) => {
+    try {
+        await updateInterestedEvents(eventId, userId);
+    } catch (error) {
+        throw error;
+    }
+    revalidatePath('/')
 }

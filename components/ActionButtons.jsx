@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const ActionButtons = ({ fromDetails }) => {
+const ActionButtons = ({eventId, fromDetails }) => {
     return (
         <div className={`w-full flex gap-4 mt-4 ${fromDetails && "flex-1"}`}>
             {/* bg-indigo-600 indicating Active  */}
