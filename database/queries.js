@@ -23,7 +23,7 @@ export const updateInterestedEvents = async (eventId, userId) => {
         if (interestedUser) {
             event.interested_ids.pull(mongoose.Types.ObjectId(userId));
         } else {
-            event.interested_ids.push(mongoose.Types.ObjectId(userId))
+            event.interested_ids.push(mongoose.Types.ObjectId(userId));
         }
 
         await event.save();
