@@ -18,15 +18,15 @@ export const updateInterestedEvents = async (eventId, userId) => {
     const event = await eventModel.findById(eventId);
 
     if (event) {
-        const interestedUser = await eventModel.interested_ids.find((id) => id.toString() === userId);
+        const interestedUser = event.interested_ids.find(id => id.toString() === userId.toString());
 
         if (interestedUser) {
-            event.interested_ids.pull(mongoose.Types.ObjectId(userId));
+            event.interested_ids.pull(new mongoose.Types.ObjectId(userId));
         } else {
-            event.interested_ids.push(mongoose.Types.ObjectId(userId));
+            event.interested_ids.push(new mongoose.Types.ObjectId(userId));
         }
 
-        await event.save();
+        event.save();
     }
 }
 
