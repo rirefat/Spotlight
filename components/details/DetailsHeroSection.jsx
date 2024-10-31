@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import ActionButtons from '../ActionButtons';
 
-const DetailsHeroSection = ({event}) => {
+const DetailsHeroSection = ({ event }) => {
     return (
         <section className="container">
             <div className="bg-gradient-to-b from-slate-200/20 to-slate-800/30">
@@ -28,7 +28,7 @@ const DetailsHeroSection = ({event}) => {
                     </div>
                 </div>
 
-                <ActionButtons fromDetails={true} eventId={event?.id} interestedUserIds={event?.interested_ids}/>
+                <ActionButtons fromDetails={true} event={event} eventId={event?.id} interestedUserIds={event?.interested_ids} />
             </div>
         </section>
     );
