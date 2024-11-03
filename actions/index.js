@@ -1,5 +1,5 @@
 'use server'
-import { createUser, findUser, updateInterestedEvents } from "@/database/queries";
+import { createUser, findUser, updateGoing, updateInterestedEvents } from "@/database/queries";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
@@ -36,4 +36,14 @@ export const addInterestedEvents = async (eventId, userId) => {
         throw error;
     }
     revalidatePath('/')
+}
+
+export const addGoingEvents = async (eventId, user) => {
+    try {
+        await updateGoing(eventId, user?._id);
+    } catch (err) {
+        throw err;
+    }
+    revalidatePath('/');
+    redirect('/');
 }

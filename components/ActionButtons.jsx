@@ -4,11 +4,13 @@ import useAuth from "@/hooks/useAuth";
 import { useRouter } from "next/navigation";
 import { useState, useTransition } from "react";
 
-const ActionButtons = ({ eventId, interestedUserIds, fromDetails }) => {
+const ActionButtons = ({ eventId, interestedUserIds, goingUserIds, fromDetails }) => {
     const router = useRouter();
     const { auth } = useAuth();
 
     const isInterested = interestedUserIds?.find((id) => id === auth?._id);
+    const isGoing = goingUserIds?.find((id) => id === auth?._id);
+
     const [interested, setInterested] = useState(isInterested);
     const [isPending, startTransition] = useTransition();
 
@@ -46,6 +48,7 @@ const ActionButtons = ({ eventId, interestedUserIds, fromDetails }) => {
 
             {/* bg-green-600 indicating Active  */}
             <button
+                disabled={auth && isGoing}
                 onClick={markAsGoing}
                 className=" text-center w-full bg-[#464849] py-2 px-2 rounded-md border border-[#5F5F5F]/50 shadow-sm cursor-pointer hover:bg-[#3C3D3D] transition-colors active:translate-y-1"
             >
