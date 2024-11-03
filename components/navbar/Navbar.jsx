@@ -19,6 +19,7 @@ const Navbar = () => {
                 </div>
 
                 <ul className="flex gap-4 text-[#9C9C9C] ">
+                    <li><Link className='hover:text-slate-200' href="/">Home</Link></li>
                     <li><Link className='hover:text-slate-200' href="/about">About</Link></li>
                     <li><Link className='hover:text-slate-200' href="/contact">Contact</Link></li>
                     <li><UserAccess /></li>
