@@ -23,7 +23,7 @@ const ActionButtons = ({ eventId, interestedUserIds, fromDetails }) => {
 
     function markAsGoing() {
         if (auth) {
-            router.push('/payment')
+            router.push(`/payment/${eventId}`)
         } else {
             router.push('/login');
         }
