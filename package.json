@@ -14,6 +14,7 @@
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18",
+    "resend": "^4.0.1-alpha.0",
     "sonner": "^1.5.0"
   },
   "devDependencies": {
