@@ -4,8 +4,16 @@ import { userModel } from "./models/userModel";
 import mongoose from "mongoose";
 
 //====================== Queries for events ======================
-export const getAllEvents = async () => {
-    const allEvents = await eventModel.find().lean();
+export const getAllEvents = async (query) => {
+    let allEvents = [];
+
+    if (query) {
+        const regex = new RegExp(query, 'i');
+        allEvents = await eventModel.find({ name: { $regex: regex } }).lean();
+    } else {
+        allEvents = await eventModel.find().lean();
+    }
+
     return replaceMongoID(allEvents);
 };
 
