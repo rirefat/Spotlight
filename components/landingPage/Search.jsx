@@ -1,5 +1,6 @@
 'use client'
 
+import useDebounce from "@/hooks/useDebounce";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 const Search = () => {
@@ -7,7 +8,7 @@ const Search = () => {
     const pathName = usePathname();
     const { replace } = useRouter();
 
-    function handleSearch(term) {
+    const doSearch = useDebounce((term) => {
         const params = new URLSearchParams(searchParams);
 
         if (term) {
@@ -17,6 +18,10 @@ const Search = () => {
         }
 
         replace(`${pathName}?${params.toString()}`);
+    }, 500);
+
+    function handleSearch(term) {
+        doSearch(term);
     }
 
     return (
