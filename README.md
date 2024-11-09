@@ -1,9 +1,28 @@
 # SpotLight
+Spotlight is a Next.js-based platform designed to help users find local events. The platform provides a clean, user-friendly interface with location-based features and curated event listings to enhance engagement and foster community connections. Spotlight aims to create a seamless and engaging experience for discovering events locally, connecting users to their communities through technology.
 
-Project Description...
-
-## Features
-
+## Project Overview
+- Build the UI structure from the template.
+- Set up MongoDB with events data, user data and references.
+- Integrate Mongo with Next.js using Mongoose(Connect, Model, Schema, Queries).
+- Fetch event details from the database.
+- Implement the register UI and register a user in DB.
+    - Use case: Server component to server action.
+- Implement the login(basic auth using email & password).
+    - Use case: Client component to server action.
+- Auth details in context
+    - Use case: How to use Context API with Next.js App Router.
+- Mark an event as interested
+    - Use case: Revalidate path after DB update.
+    - Use case: Server action invoked on Button click(Performance optimization with the useTransition Hook).
+- RSVP to an event and buy a ticket.
+    - Use case: Send an email on a successful payment.
+- Integrate structured event schema from Google Schema
+    - Use case: SEO 
+- Meta optimization and dynamic meta data.
+- Implementing server side search with searchTerm and debouncing.
+- Image optimization and handle blur placeholder.
+- Handling loading and errors.
 
 
 ## Getting Started
